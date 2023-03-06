@@ -75,7 +75,7 @@ object Utilities {
     fun scheduleUpdateEveryDay(task: Runnable) {
         val scheduler = Executors.newSingleThreadScheduledExecutor()
         val now = LocalDateTime.now()
-        val scheduledTime = now.with(LocalTime.of(20, 20, 0, 0))
+        val scheduledTime = now.with(LocalTime.of(19, 20, 0, 0))
         val delay = ChronoUnit.MILLIS.between(now, scheduledTime)
         scheduler.scheduleAtFixedRate(task, delay, 24 * 60 * 60 * 1000, TimeUnit.MILLISECONDS)
     }

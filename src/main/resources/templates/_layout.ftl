@@ -3,21 +3,23 @@
     <html lang="es">
     <head>
         <title>Histórico precio luz</title>
+        <link rel="icon" href="static/headerlogo.ico" type="image/x-icon">
         <style>
             .header {
-                padding-bottom: 50px;
+                display: flex;
+                align-items: center;
             }
             .header img {
                 float: left;
-                width: 200px;
-                height: 125px;
-                background: #555;
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-right: 20px;
+                margin-left: 80px;
             }
 
-            .header h1 {
-                position: relative;
-                top: 20px;
-                left: 10px;
+            .header h2 {
+                text-align: left;
+
             }
 
             .clearfix:before,
@@ -34,15 +36,18 @@
                 *zoom: 1;
             }
 
+            body {
+                font-family:sans-serif
+            }
+
         </style>
-    <body style="font-family: sans-serif">
+    </head>
+    <body>
         <div class="header clearfix">
-            <img src="/static/kwh_logo.webp">
-            <h1>Histórico precio luz</h1>
+            <img src="/static/bodylogo.svg">
             <h2>Precio del kWh en céntimos</h2>
         </div>
         <#nested>
-        <a href="/" float="center">Back to the main page</a>
     </body>
     </html>
 </#macro>
