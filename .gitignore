@@ -5,6 +5,8 @@ build/
 !**/src/test/**/build/
 src/main/resources/application.conf
 kwh_logo/
+z.txt
+ZZZ_ESTO_ES_REACT.txt
 
 ### STS ###
 .apt_generated
