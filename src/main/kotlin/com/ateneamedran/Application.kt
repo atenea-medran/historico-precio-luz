@@ -5,6 +5,7 @@ import com.ateneamedran.plugins.configureRouting
 import com.ateneamedran.plugins.configureTemplating
 import com.ateneamedran.utilities.Utilities
 import io.ktor.server.application.*
+import java.time.LocalTime
 
 
 fun main(args: Array<String>) {
@@ -16,5 +17,5 @@ fun Application.module() {
     configureTemplating()
     configureRouting()
     DatabaseFactory.init(environment.config)
-    Utilities.scheduleUpdateEveryDay(Utilities.updateDay())
+    Utilities.scheduleUpdateEveryDay(Utilities.updateDay(), LocalTime.of(20, 15, 0, 0))
 }

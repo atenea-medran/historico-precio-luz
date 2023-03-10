@@ -39,7 +39,7 @@ object Utilities {
         }
         return day
     }
-    private fun addNewDay(prices: MutableList<Any>) {
+    private fun addNewDay(prices: MutableList<Any>): Boolean {
         transaction {
             centims.insert {
                 it[date] = prices[0] as LocalDate
@@ -70,21 +70,25 @@ object Utilities {
                 it[price2300] = prices[25] as String
             }
         }
+        if (prices.isNotEmpty()) return true
+        return false
     }
-
-    fun scheduleUpdateEveryDay(task: Runnable) {
-        val scheduler = Executors.newSingleThreadScheduledExecutor()
-        val now = LocalDateTime.now()
-        val scheduledTime = now.with(LocalTime.of(19, 20, 0, 0))
-        val delay = ChronoUnit.MILLIS.between(now, scheduledTime)
-        scheduler.scheduleAtFixedRate(task, delay, 24 * 60 * 60 * 1000, TimeUnit.MILLISECONDS)
-    }
-
     fun updateDay() = Runnable {
-        val tomorrow = LocalDate.now().plusDays(1)
+        val tomorrow = LocalDate.now()//.plusDays(1)
         val startDate = tomorrow.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val endDate = tomorrow.plusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val day = createNewDay("https://apidatos.ree.es/en/datos/mercados/precios-mercados-tiempo-real?start_date=$startDate&T00:00&end_date=$endDate&T00:00&time_trunc=hour")
-        addNewDay(day)
+        while (!addNewDay(day)) {
+            addNewDay(day)
+            Thread.sleep(1000*60)
+        }
+    }
+
+    fun scheduleUpdateEveryDay(task: Runnable, localTime: LocalTime) {
+        val scheduler = Executors.newSingleThreadScheduledExecutor()
+        val now = LocalDateTime.now()
+        val scheduledTime = now.with(localTime)
+        val delay = ChronoUnit.MILLIS.between(now, scheduledTime)
+        scheduler.scheduleAtFixedRate(task, delay, 24 * 60 * 60 * 1000, TimeUnit.MILLISECONDS)
     }
 }

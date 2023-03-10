@@ -3,7 +3,7 @@
     <html lang="es">
     <head>
         <title>Histórico precio luz</title>
-        <link rel="icon" href="static/headerlogo.ico" type="image/x-icon">
+        <link rel="icon" href="static/headerlogoclaro.svg" type="image/x-icon">
         <style>
             .header {
                 display: flex;
@@ -14,7 +14,7 @@
                 margin-top: auto;
                 margin-bottom: auto;
                 margin-right: 20px;
-                margin-left: 80px;
+                margin-left: 50px;
             }
 
             .header h2 {
@@ -40,11 +40,17 @@
                 font-family:sans-serif
             }
 
+            @media (prefers-color-scheme: dark) {
+                .bodylogo {
+                    fill: white;
+                }
+            }
+
         </style>
     </head>
     <body>
         <div class="header clearfix">
-            <img src="/static/bodylogo.svg">
+            <img class="bodylogo" src="/static/bodylogoclaro.svg">
             <h2>Precio del kWh en céntimos</h2>
         </div>
         <#nested>

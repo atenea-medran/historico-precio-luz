@@ -2,7 +2,7 @@
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <style>
-        .center {
+        .table {
             border-collapse: collapse;
             margin-left: auto;
             margin-right: auto;
@@ -22,7 +22,7 @@
         }
     </style>
         <body>
-        <table class="center">
+        <table class="table">
             <tr>
                 <th>Fecha</th>
                 <th>00-01</th>
