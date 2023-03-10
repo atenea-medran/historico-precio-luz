@@ -74,7 +74,7 @@ object Utilities {
         return false
     }
     fun updateDay() = Runnable {
-        val tomorrow = LocalDate.now()//.plusDays(1)
+        val tomorrow = LocalDate.now().plusDays(1)
         val startDate = tomorrow.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val endDate = tomorrow.plusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val day = createNewDay("https://apidatos.ree.es/en/datos/mercados/precios-mercados-tiempo-real?start_date=$startDate&T00:00&end_date=$endDate&T00:00&time_trunc=hour")
