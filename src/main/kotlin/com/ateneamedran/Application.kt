@@ -17,5 +17,5 @@ fun Application.module() {
     configureTemplating()
     configureRouting()
     DatabaseFactory.init(environment.config)
-    Utilities.scheduleUpdateEveryDay(Utilities.updateDay(), LocalTime.of(20, 15, 0, 0))
+    Utilities.scheduleUpdateEveryDay(Utilities.updateDay(), LocalTime.of(19, 15, 0, 0))
 }
