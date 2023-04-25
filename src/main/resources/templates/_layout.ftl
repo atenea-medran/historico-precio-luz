@@ -50,7 +50,7 @@
     </head>
     <body>
         <div class="header clearfix">
-            <img class="bodylogo" src="/static/bodylogoclaro.png">
+            <img class="bodylogo" src="/static/bodylogoclaro.svg">
             <h2>Precio del kWh en céntimos</h2>
         </div>
         <#nested>

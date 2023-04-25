@@ -6,6 +6,7 @@
             border-collapse: collapse;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 10px;
             padding-top: 50px;
             padding-bottom: 50px;
             padding-right: 50px;
