@@ -12,7 +12,7 @@ import org.jetbrains.exposed.sql.selectAll
 
 class DAOFacadeImpl : DAOFacade {
     private fun resultRowToDay(row: ResultRow) = Day(
-        date = row[centims.date],
+//        date = row[centims.date],
         fecha = row[centims.fecha],
         price01 = row[centims.price01],
         price12 = row[centims.price12],
